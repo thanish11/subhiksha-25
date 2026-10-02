@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Happy 25th Birthday · SUBHIKSHA</title>
+<meta name="description" content="A little love note for Subhiksha's 25th birthday." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --cream:#fff8f3; --cream-2:#fdeee6; --blush:#ffdfe8; --rose:#e2607f; --rose-deep:#c23a5c;
+  --gold:#d9a441; --ink:#4a2b3a; --ink-soft:#8b6b78; --leaf:#7fa77a;
+  --card:#fffdf9;
+  --shadow:0 24px 60px rgba(122,52,74,.16);
+  --script:"Great Vibes", "Snell Roundhand", cursive;
+  --serif:"Cormorant Garamond", Georgia, serif;
+  --sans:"Jost", system-ui, -apple-system, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  background:var(--cream); color:var(--ink); font-family:var(--sans); font-weight:300;
+  overflow:hidden; overscroll-behavior:none;
+}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block;max-width:100%}
+
+/* ---------- deck ---------- */
+.deck{
+  height:100dvh; overflow-y:scroll; scroll-snap-type:y mandatory;
+  scrollbar-width:none;
+}
+.deck::-webkit-scrollbar{display:none}
+.page{
+  height:100dvh; scroll-snap-align:center; scroll-snap-stop:always;
+  position:relative; display:flex; align-items:center; justify-content:center;
+  padding:clamp(28px,6vw,72px) clamp(18px,5vw,56px);
+}
+#cover{overflow:hidden}
+.scroller{width:100%;max-height:100%;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
+.scroller::-webkit-scrollbar{display:none}
+.page::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(194,58,92,.055) 1px, transparent 1px);
+  background-size:22px 22px}
+
+/* ---------- shared type ---------- */
+.kicker{font-size:clamp(.62rem,1.6vw,.8rem);letter-spacing:.42em;text-transform:uppercase;color:var(--ink-soft)}
+.script{font-family:var(--script);font-weight:400;line-height:1.05}
+.serif{font-family:var(--serif)}
+.gold-rule{width:64px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:18px auto}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.8,.25,1)}
+.page.on .reveal{opacity:1;transform:none}
+.page.on .d1{transition-delay:.15s}.page.on .d2{transition-delay:.32s}.page.on .d3{transition-delay:.5s}
+.page.on .d4{transition-delay:.68s}.page.on .d5{transition-delay:.86s}
+
+/* ---------- 1 · cover ---------- */
+#cover{background:radial-gradient(120% 90% at 50% 0%,#fff9f4 0%,var(--cream-2) 46%,#fbe2e8 100%)}
+.cover-inner{position:relative;z-index:2;text-align:center;max-width:640px}
+.cover-title{font-size:clamp(3.4rem,15vw,7.6rem);color:var(--rose-deep);
+  text-shadow:0 2px 0 rgba(255,255,255,.7),0 18px 44px rgba(194,58,92,.22)}
+.cover-name{font-family:var(--sans);font-weight:400;font-size:clamp(.95rem,2.6vw,1.35rem);
+  letter-spacing:.5em;text-indent:.5em;margin-top:10px;color:var(--ink)}
+.cover-sub{font-family:var(--serif);font-style:italic;font-size:clamp(1rem,2.6vw,1.35rem);
+  color:var(--ink-soft);margin-top:18px}
+.bloom{position:absolute;width:min(46vmin,420px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 50% 45%,rgba(255,222,232,.95),rgba(255,222,232,0) 68%);
+  filter:blur(2px);z-index:1;pointer-events:none}
+.petals{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.petal{position:absolute;top:-8vh;font-size:clamp(12px,2.2vw,20px);opacity:.5;
+  animation:fall linear infinite}
+@keyframes fall{0%{transform:translateY(-10vh) rotate(0);opacity:0}
+  10%{opacity:.55}100%{transform:translateY(112vh) rotate(320deg);opacity:0}}
+
+/* envelope */
+.env{position:relative;width:min(78vw,330px);aspect-ratio:1.62;margin:34px auto 0;cursor:pointer;
+  transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.9,.25,1)}
+.env:hover{transform:translateY(-5px)}
+.env-body{position:absolute;inset:0;border-radius:10px;
+  background:linear-gradient(160deg,#fffdf8,#f7ece2);
+  box-shadow:var(--shadow),0 2px 0 rgba(194,58,92,.08)}
+.env-flap{position:absolute;left:0;right:0;top:0;height:56%;transform-origin:top center;
+  background:linear-gradient(180deg,#f6e4da,#efd6cb);
+  clip-path:polygon(0 0,100% 0,50% 100%);border-radius:10px 10px 0 0;
+  transition:transform .9s cubic-bezier(.6,-.2,.3,1.2);z-index:3}
+.env.open .env-flap{transform:rotateX(168deg)}
+.env-card{position:absolute;left:8%;right:8%;top:12%;height:74%;z-index:2;
+  background:linear-gradient(#fffdf7,#fff6f0);border-radius:8px;
+  box-shadow:0 10px 24px rgba(122,52,74,.14);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;padding:14px;text-align:center;
+  transform:translateY(0);transition:transform .9s cubic-bezier(.2,.9,.25,1) .18s}
+.env.open .env-card{transform:translateY(-34%)}
+.env-card .s{font-family:var(--script);font-size:clamp(1.5rem,6vw,2.2rem);color:var(--rose-deep);line-height:1}
+.env-card .t{font-family:var(--serif);font-size:clamp(.8rem,2.4vw,1rem);color:var(--ink-soft)}
+.env-seal{position:absolute;left:50%;top:52%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;
+  background:radial-gradient(circle at 38% 34%,#f08098,var(--rose-deep) 70%);
+  box-shadow:0 6px 16px rgba(122,52,74,.3);display:grid;place-items:center;color:#fff;font-size:1.2rem;
+  z-index:4;transition:transform .5s ease,opacity .5s ease}
+.env.open .env-seal{transform:scale(.4) rotate(-24deg);opacity:0}
+.env-hint{position:absolute;left:50%;bottom:-38px;transform:translateX(-50%);white-space:nowrap;
+  font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ---------- 2 · letter ---------- */
+#letter{background:linear-gradient(170deg,#fff9f4,#fdeaf0)}
+.paper{position:relative;z-index:2;max-width:620px;width:100%;padding:clamp(28px,5vw,52px);
+  max-height:100%;overflow-y:auto;scrollbar-width:none;
+  background:
+    repeating-linear-gradient(transparent 0 33px,rgba(194,58,92,.08) 33px 34px),
+    linear-gradient(var(--card),var(--card));
+  background-position:0 clamp(28px,5vw,52px),0 0;
+  border-radius:6px;box-shadow:var(--shadow);transform:rotate(-.5deg)}
+.paper::before{content:"";position:absolute;inset:10px;border:1px solid rgba(194,58,92,.16);
+  border-radius:3px;pointer-events:none}
+.paper::-webkit-scrollbar{display:none}
+.paper .greet{font-family:var(--script);font-size:clamp(2rem,7vw,3rem);color:var(--rose-deep)}
+.letter-text{font-family:var(--serif);font-size:clamp(1.06rem,2.9vw,1.34rem);line-height:1.85;
+  color:#573646;margin-top:6px;min-height:11em}
+.letter-text p{margin-bottom:.85em}
+.caret{display:inline-block;width:2px;height:1.02em;background:var(--rose);vertical-align:-.14em;
+  margin-left:1px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.sign{font-family:var(--script);font-size:clamp(1.7rem,6vw,2.4rem);color:var(--rose-deep);margin-top:18px;text-align:right}
+.postmark{display:flex;align-items:center;gap:10px;justify-content:flex-end;color:var(--ink-soft);
+  font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:14px}
+.postmark span{border:1px solid rgba(194,58,92,.4);border-radius:999px;padding:5px 12px}
+
+/* ---------- 3 · photos ---------- */
+#photos{background:linear-gradient(180deg,#fdeaf0,#fff8f3)}
+.grid-wrap{position:relative;z-index:2;width:100%;max-width:1080px;margin:0 auto}
+.grid-head{text-align:center;margin-bottom:clamp(16px,3vw,30px)}
+.grid-head h2{font-family:var(--script);font-size:clamp(2rem,6.6vw,3.2rem);color:var(--rose-deep)}
+.scrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(clamp(120px,15vw,168px),1fr));gap:clamp(12px,2.2vw,22px)}
+.shot{perspective:1000px;cursor:pointer}
+.shot-in{position:relative;background:var(--card);border-radius:4px;padding:11px 11px 8px;
+  box-shadow:0 16px 38px rgba(122,52,74,.18);
+  transform:rotate(var(--rot,0deg)) translateY(var(--dy,0px));
+  transition:transform .38s cubic-bezier(.2,.8,.3,1),box-shadow .35s ease;
+  animation:drop .8s cubic-bezier(.2,.9,.25,1) backwards;animation-delay:var(--dl,0s);
+  will-change:transform}
+.shot-in::after{content:"";position:absolute;inset:0;border-radius:4px;pointer-events:none;
+  opacity:0;transition:opacity .35s ease;z-index:3;
+  background:
+    radial-gradient(38% 30% at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.62),rgba(255,255,255,0) 70%),
+    linear-gradient(115deg,rgba(255,255,255,0) 42%,rgba(255,255,255,.28) 50%,rgba(255,255,255,0) 58%)}
+.shot.tilting .shot-in,.shot:hover .shot-in{box-shadow:0 28px 56px rgba(122,52,74,.3)}
+.shot.tilting .shot-in::after{opacity:1}
+.shot:hover .shot-in{animation-play-state:paused}
+.shot img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px;background:#efe4dc}
+.shot figcaption{font-family:var(--script);font-size:clamp(1.05rem,2.6vw,1.4rem);
+  color:var(--rose-deep);text-align:center;margin-top:8px;line-height:1.2}
+.tape{position:absolute;top:-11px;left:50%;width:62px;height:22px;margin-left:-31px;
+  background:rgba(255,255,255,.5);box-shadow:0 1px 3px rgba(0,0,0,.08);transform:rotate(-3deg)}
+@keyframes drop{from{opacity:0;transform:rotate(var(--rot,0deg)) translateY(-26px) scale(.94)}
+  to{opacity:1;transform:rotate(var(--rot,0deg)) translateY(var(--dy,0px))}}
+
+/* ---------- 4 · reasons ---------- */
+#reasons{background:linear-gradient(180deg,#fff8f3,#f7ece2)}
+.reasons-head{text-align:center;margin-bottom:clamp(14px,3vw,26px);position:relative;z-index:2}
+.reasons-head h2{font-family:var(--script);font-size:clamp(2rem,6.6vw,3.2rem);color:var(--rose-deep)}
+.notes{position:relative;z-index:2;width:100%;max-width:1120px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(124px,14vw,156px),1fr));gap:clamp(8px,1.5vw,14px)}
+.note{perspective:900px;aspect-ratio:3/2.35;cursor:pointer;opacity:0;
+  animation:drop .7s cubic-bezier(.2,.9,.25,1) forwards;animation-delay:var(--dl,0s)}
+.note-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;
+  transition:transform .7s cubic-bezier(.3,.8,.3,1)}
+.note.flipped .note-in{transform:rotateY(180deg)}
+.note-f,.note-b{position:absolute;inset:0;border-radius:8px;backface-visibility:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:12px;
+  text-align:center;box-shadow:0 12px 28px rgba(122,52,74,.16)}
+.note-f{background:linear-gradient(160deg,#fff6f8,#ffe4ec);border:1px solid rgba(194,58,92,.14)}
+.note-b{background:linear-gradient(160deg,#fffdf6,#fff3dd);transform:rotateY(180deg);
+  border:1px solid rgba(217,164,65,.3);font-family:var(--serif);font-size:clamp(.86rem,2.2vw,1.02rem);
+  line-height:1.42;color:#5c4050}
+.note-n{font-family:var(--script);font-size:clamp(1.5rem,4vw,2rem);color:var(--rose-deep);line-height:1}
+.note-l{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft)}
+.note-f svg{width:20px;height:20px;fill:var(--rose);opacity:.8}
+
+/* ---------- 5 · finale (closing note + song video) ---------- */
+#finale{background:linear-gradient(180deg,#f7ece2,#fdeaf0)}
+.finale-wrap{position:relative;z-index:2;width:100%;max-width:680px;margin:0 auto;text-align:center}
+.finale-head h2{font-family:var(--script);font-size:clamp(2rem,6.6vw,3.2rem);color:var(--rose-deep)}
+.finale-paper{position:relative;margin-top:clamp(14px,3vw,22px);padding:clamp(20px,4vw,32px);
+  background:linear-gradient(var(--card),var(--card));border-radius:8px;
+  box-shadow:var(--shadow);text-align:left}
+.finale-paper::before{content:"";position:absolute;inset:10px;border:1px solid rgba(194,58,92,.14);
+  border-radius:4px;pointer-events:none}
+.finale-text{font-family:var(--serif);font-size:clamp(1rem,2.7vw,1.24rem);line-height:1.8;color:#573646}
+.finale-text p+p{margin-top:.8em}
+.video-shell{position:relative;margin-top:clamp(18px,3.4vw,28px);width:100%;aspect-ratio:16/9;
+  border-radius:10px;overflow:hidden;background:radial-gradient(120% 100% at 50% 0%,#3d1f2b,#231019);
+  box-shadow:0 22px 48px rgba(122,52,74,.3)}
+/* the media element lives here and is re-positioned over the card */
+#mediaStage{position:fixed;left:-9999px;top:0;width:640px;height:360px;overflow:hidden;z-index:19;
+  opacity:0;pointer-events:none;border-radius:10px;transition:opacity .45s ease}
+#mediaStage.on{opacity:1;pointer-events:auto}
+#mediaStage iframe,#mediaStage video{width:100%;height:100%;border:0;display:block;background:#000}
+.v-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6;
+  transition:opacity .4s ease,transform .7s ease}
+.v-facade{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:10px;padding:12px;text-align:center;
+  background:linear-gradient(180deg,rgba(35,16,25,.24),rgba(35,16,25,.62));color:#fff;width:100%;
+  transition:background .3s ease}
+.video-shell:hover .v-facade{background:linear-gradient(180deg,rgba(35,16,25,.12),rgba(35,16,25,.52))}
+.video-shell:hover .v-thumb{transform:scale(1.04)}
+.v-play{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.94);display:grid;place-items:center;
+  box-shadow:0 12px 30px rgba(0,0,0,.42);transition:transform .25s ease}
+.video-shell:hover .v-play{transform:scale(1.08)}
+.v-play svg{width:22px;height:22px;fill:var(--rose-deep);margin-left:4px}
+.v-lab{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.92)}
+.v-sub{font-family:var(--serif);font-style:italic;font-size:.92rem;color:rgba(255,255,255,.72)}
+.finale-note{font-family:var(--serif);font-style:italic;font-size:.86rem;color:var(--ink-soft);margin-top:14px}
+
+/* ---------- 6 · wish ---------- */
+#wish{background:radial-gradient(110% 80% at 50% 100%,#fbe0e8 0%,#fdeee6 46%,#fff8f3 100%)}
+.wish-inner{position:relative;z-index:2;text-align:center;max-width:620px}
+.wish-big{font-family:var(--script);font-size:clamp(2.8rem,12vw,6rem);color:var(--rose-deep);line-height:1}
+.wish-name{font-size:clamp(.9rem,2.4vw,1.2rem);letter-spacing:.46em;text-indent:.46em;margin-top:14px}
+.wish-line{font-family:var(--serif);font-style:italic;font-size:clamp(1rem,2.6vw,1.3rem);
+  color:var(--ink-soft);margin-top:20px}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.btn{border:1px solid rgba(194,58,92,.35);border-radius:999px;padding:12px 26px;background:rgba(255,255,255,.7);
+  color:var(--rose-deep);letter-spacing:.16em;text-transform:uppercase;font-size:.76rem;
+  transition:transform .25s ease,background .25s ease,box-shadow .25s ease}
+.btn:hover{transform:translateY(-3px);background:#fff;box-shadow:0 12px 26px rgba(122,52,74,.18)}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:9}
+
+/* ---------- chrome ---------- */
+.dots{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:12;
+  display:flex;flex-direction:column;gap:11px}
+.dots button{width:9px;height:9px;border-radius:50%;background:rgba(194,58,92,.22);
+  transition:all .3s ease;border:0;padding:0}
+.dots button.on{background:var(--rose-deep);transform:scale(1.35);box-shadow:0 0 0 4px rgba(194,58,92,.12)}
+.arrows{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:12;display:flex;gap:10px}
+.arrows button{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.72);
+  box-shadow:0 8px 22px rgba(122,52,74,.14);display:grid;place-items:center;color:var(--rose-deep);
+  transition:transform .25s ease,opacity .25s ease}
+.arrows button:disabled{opacity:.3;cursor:default;transform:none}
+.arrows button:not(:disabled):hover{transform:translateY(-3px)}
+.arrows svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* ---------- music player ---------- */
+.player{
+  position:fixed;left:16px;bottom:16px;z-index:14;display:flex;align-items:center;gap:12px;
+  padding:10px 16px 10px 10px;border-radius:999px;max-width:min(78vw,340px);
+  background:rgba(255,252,250,.86);backdrop-filter:blur(10px);
+  box-shadow:0 14px 34px rgba(122,52,74,.18);border:1px solid rgba(194,58,92,.14);
+  opacity:0;transform:translateY(14px) scale(.94);pointer-events:none;
+  transition:opacity .6s ease,transform .6s cubic-bezier(.2,.9,.25,1),box-shadow .25s ease;
+}
+body.started .player{opacity:1;transform:none;pointer-events:auto}
+.player:hover{box-shadow:0 18px 40px rgba(122,52,74,.26)}
+.pl-play{
+  flex:0 0 auto;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(150deg,#f08098,var(--rose-deep));color:#fff;
+  box-shadow:0 8px 18px rgba(194,58,92,.35);transition:transform .25s ease}
+.player:hover .pl-play{transform:scale(1.06)}
+.pl-play svg{width:18px;height:18px;fill:#fff;margin-left:2px}
+.player.playing .pl-play svg{margin-left:0}
+.pl-disc{display:none}
+.player.playing .pl-disc{display:block}
+.pl-meta{min-width:0;flex:1}
+.pl-title{font-size:.86rem;font-weight:400;color:var(--ink);letter-spacing:.02em;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis}
+.pl-sub{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px}
+.pl-row{display:flex;align-items:center;gap:8px;margin-top:7px}
+.pl-bar{position:relative;flex:1;height:4px;border-radius:99px;background:rgba(194,58,92,.18);cursor:pointer}
+.pl-bar i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--rose),var(--gold))}
+.pl-bar i::after{content:"";position:absolute;right:-5px;top:50%;width:9px;height:9px;margin-top:-4.5px;
+  border-radius:50%;background:var(--rose-deep);box-shadow:0 2px 6px rgba(122,52,74,.35);opacity:0;transition:opacity .2s}
+.pl-bar:hover i::after{opacity:1}
+.pl-time{font-size:.62rem;color:var(--ink-soft);letter-spacing:.08em;font-variant-numeric:tabular-nums;min-width:6.4ch}
+.pl-disc{position:absolute;inset:0;border-radius:999px;border:1.5px solid rgba(255,255,255,.5);
+  pointer-events:none;animation:plring 3.4s ease-in-out infinite}
+@keyframes plring{0%,100%{box-shadow:0 0 0 0 rgba(226,96,127,.28)}50%{box-shadow:0 0 0 9px rgba(226,96,127,0)}}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;
+  background:rgba(60,26,38,.9);backdrop-filter:blur(6px);opacity:0;visibility:hidden;
+  transition:opacity .4s ease,visibility .4s}
+.lb.show{opacity:1;visibility:visible}
+.lb figure{max-width:min(92vw,760px);text-align:center;transform:scale(.94);transition:transform .5s cubic-bezier(.2,.9,.25,1)}
+.lb.show figure{transform:none}
+.lb img{max-height:74dvh;width:auto;border-radius:4px;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.lb figcaption{font-family:var(--script);font-size:clamp(1.3rem,4vw,2rem);color:#ffe9ef;margin-top:14px}
+.lb-note{font-family:var(--serif);font-style:italic;font-size:clamp(.94rem,2.4vw,1.14rem);
+  line-height:1.6;color:rgba(255,233,239,.78);max-width:46ch;margin:10px auto 0}
+.lb-count{color:rgba(255,233,239,.6);font-size:.75rem;letter-spacing:.24em;margin-top:6px}
+.lb button{position:absolute;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.14);
+  color:#fff;display:grid;place-items:center;font-size:1.1rem;transition:background .2s,transform .2s}
+.lb button:hover{background:rgba(255,255,255,.3);transform:scale(1.06)}
+.lb .x{top:16px;right:16px}
+.lb .p{top:50%;margin-top:-23px;width:52px;height:52px}
+.lb .l{left:12px}.lb .r{right:12px}
+.lb .l svg,.lb .r svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.swipe-hint{position:fixed;left:50%;bottom:64px;transform:translateX(-50%);z-index:11;
+  font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(138,107,120,.7);
+  transition:opacity .6s ease;pointer-events:none}
+.swipe-hint.gone{opacity:0}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001s !important;transition-duration:.001s !important}
+  .deck{scroll-behavior:auto}
+}
+@media (max-width:520px){
+  .dots{right:8px}.arrows{bottom:10px}
+  .shot{padding:8px 8px 6px}
+  .player{left:12px;right:12px;bottom:66px;max-width:none}
+  .swipe-hint{bottom:124px}
+}
+</style>
+</head>
+<body>
+
+<canvas id="confetti"></canvas>
+
+<div class="deck" id="deck">
+<!-- 1 · COVER -->
+<section class="page" id="cover">
+  <div class="bloom" style="left:50%;top:42%;transform:translate(-50%,-50%)"></div>
+  <div class="petals" id="petals"></div>
+  <div class="cover-inner">
+    <p class="kicker reveal d1">a little love note for you</p>
+    <h1 class="script cover-title reveal d2" id="coverTitle">Happy 25th Birthday</h1>
+    <p class="cover-name reveal d3" id="coverName">SUBHIKSHA</p>
+    <p class="cover-sub reveal d4" id="coverSub">twenty-five candles, one heart, and you</p>
+    <div class="env reveal d5" id="env" role="button" tabindex="0" aria-label="Open your letter">
+      <div class="env-body"></div>
+      <div class="env-card">
+        <span class="s">for you</span>
+        <span class="t">read it slowly</span>
+      </div>
+      <div class="env-flap"></div>
+      <div class="env-seal">&#10084;</div>
+      <span class="env-hint" id="envHint">tap the envelope</span>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · LETTER -->
+<section class="page" id="letter">
+  <div class="bloom" style="right:-14%;top:-16%"></div>
+  <article class="paper">
+    <div class="postmark"><span id="pmDate">25 · 07 · 2026</span></div>
+    <p class="greet" id="greet">Dear Subhiksha,</p>
+    <div class="letter-text" id="letterText"></div>
+    <p class="sign" id="sign">Forever yours &#10084;</p>
+  </article>
+</section>
+
+<!-- 3 · PHOTOS -->
+<section class="page" id="photos">
+ <div class="scroller">
+  <div class="grid-wrap">
+    <header class="grid-head reveal d1">
+      <p class="kicker">our little world</p>
+      <h2 class="script">Every moment with you</h2>
+    </header>
+    <div class="scrap" id="scrap"></div>
+  </div>
+ </div>
+</section>
+
+<!-- 4 · REASONS -->
+<section class="page" id="reasons">
+  <div class="bloom" style="left:-16%;bottom:-18%"></div>
+ <div class="scroller">
+  <header class="reasons-head reveal d1">
+    <p class="kicker">count them if you like</p>
+    <h2 class="script">Twenty-five little reasons</h2>
+  </header>
+  <div class="notes" id="notes"></div>
+ </div>
+</section>
+
+<!-- 5 · FINALE -->
+<section class="page" id="finale">
+  <div class="bloom" style="right:-16%;top:-16%"></div>
+ <div class="scroller">
+  <div class="finale-wrap">
+    <header class="finale-head reveal d1">
+      <p class="kicker">one last thing</p>
+      <h2 class="script">Another chapter, another memory</h2>
+    </header>
+    <div class="finale-paper reveal d2">
+      <div class="finale-text" id="closingText"></div>
+    </div>
+    <div class="video-shell reveal d3" id="videoShell">
+      <img class="v-thumb" id="vThumb" alt="" loading="lazy" decoding="async" />
+      <button class="v-facade" id="vFacade" aria-label="Play the song video">
+        <span class="v-play"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+        <span class="v-lab" id="vLabel">click me</span>
+        <span class="v-sub" id="vSub">a little song, just for you</span>
+      </button>
+    </div>
+    <p class="finale-note reveal d4" id="finaleNote">turn the sound up &#9835;</p>
+  </div>
+ </div>
+</section>
+
+<!-- 6 · WISH -->
+<section class="page" id="wish">
+  <div class="bloom" style="left:50%;top:38%;transform:translate(-50%,-50%)"></div>
+  <div class="wish-inner">
+    <p class="kicker reveal d1">that's all, for now</p>
+    <h2 class="script wish-big reveal d2" id="wishBig">Happy 25th, Subhiksha</h2>
+    <p class="wish-name reveal d3" id="wishName">SUBHIKSHA</p>
+    <div class="gold-rule reveal d4"></div>
+    <p class="wish-line reveal d4" id="wishLine">made with all my love, and a lot of tea</p>
+    <div class="actions reveal d5">
+      <button class="btn" id="again">read it again</button>
+      <button class="btn" id="photoAgain">see the photos</button>
+    </div>
+  </div>
+</section>
+</div><!-- /.deck -->
+
+<div class="dots" id="dots"></div>
+<div class="arrows">
+  <button id="prev" aria-label="Previous page"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button id="next" aria-label="Next page"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+<audio id="song" preload="metadata" loop></audio>
+<div id="mediaStage" aria-hidden="true"><div id="ytHost"></div></div>
+
+<div class="player" id="player">
+  <span class="pl-disc"></span>
+  <button class="pl-play" id="plPlay" aria-label="Play Until I Found You">
+    <svg id="plIcon" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>
+  </button>
+  <div class="pl-meta">
+    <div class="pl-title">Until I Found You</div>
+    <div class="pl-sub" id="plSub">our song</div>
+    <div class="pl-row">
+      <div class="pl-bar" id="plBar"><i id="plFill"></i></div>
+      <span class="pl-time" id="plTime">0:00</span>
+    </div>
+  </div>
+</div>
+<p class="swipe-hint" id="swipeHint">scroll or swipe</p>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <button class="x" id="lbClose" aria-label="Close">&#10005;</button>
+  <button class="p l" id="lbPrev" aria-label="Previous photo"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="p r" id="lbNext" aria-label="Next photo"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  <figure>
+    <img id="lbImg" alt="" />
+    <figcaption id="lbCap"></figcaption>
+    <p class="lb-note" id="lbNote"></p>
+    <div class="lb-count" id="lbCount"></div>
+  </figure>
+</div>
+
+<script>
+"use strict";
+
+/* ===================================================================== */
+/* EDIT ME — everything personal lives here                              */
+/* ===================================================================== */
+const CONFIG = {
+  name: "SUBHIKSHA",
+  nameSoft: "Subhiksha",
+  age: 25,
+  from: "your person",
+  date: "25 · 07 · 2026",
+  letter: [
+    "Twenty-five. I keep saying that number out loud because it still doesn't feel real to me — how anyone gets to your age and stays this soft, this kind, this completely yourself.",
+    "You walked into my life and quietly rearranged everything. The ordinary days got brighter, the food got better, and I started paying attention to things like the exact time you laugh.",
+    "Every candle, every photo, every little reason on the next page is just me trying to say the one thing I never get tired of saying: I love you. Happy birthday. Let's do twenty-five more of these."
+  ],
+  images: [
+    { src: "photos/944F3324-482B-4DB7-8FBD-5518BC34CB22.PNG", cap: "from the very start",
+      note: "This is where it all began, and I would not change a single thing about it." },
+    { src: "photos/BF963285-C222-4315-9E8E-536F6E5D8C59.PNG", cap: "you & me",
+      note: "If I had to pick a favourite memory, it would still be an ordinary one with you." },
+    { src: "photos/IMG_0664.JPG", cap: "every moment with you",
+      note: "Nothing special happened here, which is exactly why I want to keep it forever." },
+    { src: "photos/IMG_0666.JPG", cap: "golden days",
+      note: "Some days arrive softly, then stay warm long after they are gone." },
+    { src: "photos/IMG_0667.JPG", cap: "that smile of yours",
+      note: "If I could keep one thing from this year, it would be this smile." },
+    { src: "photos/IMG_0668.JPG", cap: "so much love",
+      note: "Every photo of you is a small proof that good things really do happen." },
+    { src: "photos/IMG_4361_Original.jpg", cap: "one look, forever",
+      note: "One look at you and the whole day quietly rearranges itself." },
+    { src: "photos/IMG_5320.JPG", cap: "and here's to more",
+      note: "More of this, please. More Sundays, more laughter, more of you." },
+    { src: "photos/IMG_5323.JPG", cap: "you, always",
+      note: "You, in every plan, every picture, every good thing I can imagine." },
+    { src: "photos/IMG_5325.JPG", cap: "chapter after chapter",
+      note: "Here is to the next chapter, and every page we still get to write in it." }
+  ],
+  reasons: [
+    "Because your laugh fixes any bad day.",
+    "Because you notice the small things nobody else does.",
+    "Because your voice is my favourite sound.",
+    "Because you are unreasonably kind to strangers.",
+    "Because you make an ordinary Tuesday feel special.",
+    "Because you always tell me the truth, gently.",
+    "Because you dance badly and completely happily.",
+    "Because you love the people you love loudly.",
+    "Because you ask better questions than anyone.",
+    "Because you remember the things I mention once.",
+    "Because you are soft with animals and small things.",
+    "Because you are brave in the ways that actually count.",
+    "Because you let me be silly without judging me.",
+    "Because you believe in my weird ideas first.",
+    "Because you carry other people's sadness and set it down gently.",
+    "Because you are the prettiest person in every single photo.",
+    "Because you try the scary new food anyway.",
+    "Because you know my order by heart.",
+    "Because you celebrate my tiny wins like they are huge.",
+    "Because you forgive faster than anybody should have to.",
+    "Because you make me want to be better, quietly.",
+    "Because your hugs always arrive exactly on time.",
+    "Because you are home, and home is a person.",
+    "Because at 25 you are only getting started — and I get to watch.",
+    "Because you are you. That is the whole reason."
+  ],
+  closing: [
+    "It's kind of funny how a whole year can pass without you even realizing it. So many versions of us got packed into these last few months — random plans, stupid jokes, quiet moments, and days that somehow became unforgettable.",
+    "And just like that, another little chapter becomes a memory. I hope you always remember how loved you are — not just today, but in all the ordinary moments in between. Here's to late-night conversations, silly pictures, unexpected adventures, and all the memories we haven't made yet.",
+    "Whatever comes next, I'm really glad I get to be a part of it."
+  ],
+  /* Drop your own files in and they are used instead of YouTube.
+     audio/until-i-found-you.mp3   →  audio.src
+     video/until-i-found-you.mp4   →  video.file                       */
+  audio: { src: "" },
+  video: {
+    id: "GxldQ9eX2wo",
+    file: "",
+    length: 194,
+    label: "click me",
+    sub: "a little song, just for you",
+    note: "turn the sound up \u266b"
+  }
+};
+
+/* ===================================================================== */
+/* copy in the personal bits                                             */
+/* ===================================================================== */
+const $ = (s, r) => (r || document).querySelector(s);
+const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const pick = (a) => a[(Math.random() * a.length) | 0];
+
+(function fillCopy() {
+  const n = CONFIG.name, soft = CONFIG.nameSoft || n, age = CONFIG.age;
+  document.title = `Happy ${age}th Birthday · ${n}`;
+  $("#coverTitle").textContent = `Happy ${age}th Birthday`;
+  $("#coverName").textContent = n;
+  $("#coverSub").textContent = `${age} candles, one heart, and you`;
+  $("#greet").textContent = `Dear ${soft},`;
+  $("#sign").textContent = `Forever yours \u2764`;
+  $("#pmDate").textContent = CONFIG.date;
+  $("#wishBig").textContent = `Happy ${age}th, ${soft}`;
+  $("#wishName").textContent = n;
+})();
+
+/* ===================================================================== */
+/* petals                                                               */
+/* ===================================================================== */
+(function petals() {
+  const box = $("#petals");
+  const marks = ["\u2764", "\u2721", "\u25C6", "\u2022"];
+  if (reduce) return;
+  for (let i = 0; i < 16; i++) {
+    const p = document.createElement("span");
+    p.className = "petal";
+    p.textContent = pick(marks);
+    p.style.left = (Math.random() * 100).toFixed(2) + "%";
+    p.style.animationDuration = (11 + Math.random() * 14).toFixed(1) + "s";
+    p.style.animationDelay = (-Math.random() * 20).toFixed(1) + "s";
+    p.style.fontSize = (10 + Math.random() * 14).toFixed(0) + "px";
+    box.appendChild(p);
+  }
+})();
+
+/* ===================================================================== */
+/* photo scrapbook                                                      */
+/* ===================================================================== */
+const shots = [];
+(function buildScrap() {
+  const wrap = $("#scrap");
+  CONFIG.images.forEach((im, i) => {
+    const fig = document.createElement("figure");
+    fig.className = "shot";
+    fig.style.setProperty("--rot", (i % 2 ? 1.6 : -1.8) + "deg");
+    fig.style.setProperty("--dy", i % 3 === 1 ? "-10px" : i % 3 === 2 ? "8px" : "0px");
+    fig.style.setProperty("--dl", (i * 0.07).toFixed(2) + "s");
+    const inner = document.createElement("div");
+    inner.className = "shot-in";
+    const tape = document.createElement("span");
+    tape.className = "tape";
+    const img = document.createElement("img");
+    img.src = im.src;
+    img.alt = im.cap;
+    img.loading = "lazy";
+    img.decoding = "async";
+    const cap = document.createElement("figcaption");
+    cap.textContent = im.cap;
+    inner.appendChild(tape);
+    inner.appendChild(img);
+    inner.appendChild(cap);
+    fig.appendChild(inner);
+    img.addEventListener("error", () => {
+      fig.remove();
+      const k = shots.findIndex((s) => s.el === fig);
+      if (k > -1) shots.splice(k, 1);
+      CONFIG.images.splice(CONFIG.images.indexOf(im), 1);
+    });
+    fig.addEventListener("click", () => openLb(i));
+    wrap.appendChild(fig);
+    shots.push({ el: fig, img });
+  });
+})();
+
+/* mouse-tracked tilt — the card leans toward the pointer and catches the light */
+(function tilt() {
+  const fine = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+  if (!fine || reduce) return;
+  const MAX_X = 9, MAX_Y = 12;
+  shots.forEach((s) => {
+    const fig = s.el, inner = $(".shot-in", fig);
+    let r = null, frame = 0;
+    function measure() { r = fig.getBoundingClientRect(); }
+    function rest() {
+      cancelAnimationFrame(frame); frame = 0;
+      fig.classList.remove("tilting");
+      inner.style.transform = "";
+      inner.style.removeProperty("--gx");
+      inner.style.removeProperty("--gy");
+    }
+    fig.addEventListener("pointerenter", measure);
+    fig.addEventListener("pointermove", (e) => {
+      if (!r) measure();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        inner.style.transform =
+          "rotateX(" + ((0.5 - py) * MAX_X).toFixed(2) + "deg) rotateY(" +
+          ((px - 0.5) * MAX_Y).toFixed(2) + "deg) rotate(var(--rot,0deg)) translateY(var(--dy,0px))";
+        inner.style.setProperty("--gx", (px * 100).toFixed(1) + "%");
+        inner.style.setProperty("--gy", (py * 100).toFixed(1) + "%");
+        fig.classList.add("tilting");
+      });
+    });
+    fig.addEventListener("pointerleave", rest);
+  });
+  addEventListener("scroll", () => shots.forEach((s) => s.el.classList.contains("tilting") && s.el.dispatchEvent(new Event("pointerleave"))), { passive: true, capture: true });
+})();
+
+/* lightbox */
+const lb = $("#lb");
+let lbIndex = -1;
+function openLb(i) {
+  lbIndex = (i + CONFIG.images.length) % CONFIG.images.length;
+  paintLb();
+  lb.classList.add("show");
+  deck.style.overflowY = "hidden";
+}
+function closeLb() {
+  lb.classList.remove("show");
+  deck.style.overflowY = "scroll";
+  lbIndex = -1;
+}
+function paintLb() {
+  const it = CONFIG.images[lbIndex];
+  $("#lbImg").src = it.src;
+  $("#lbImg").alt = it.cap;
+  $("#lbCap").textContent = it.cap;
+  $("#lbNote").textContent = it.note || "";
+  $("#lbCount").textContent = (lbIndex + 1) + " / " + CONFIG.images.length;
+}
+$("#lbClose").addEventListener("click", closeLb);
+$("#lbPrev").addEventListener("click", () => { lbIndex = (lbIndex - 1 + CONFIG.images.length) % CONFIG.images.length; paintLb(); });
+$("#lbNext").addEventListener("click", () => { lbIndex = (lbIndex + 1) % CONFIG.images.length; paintLb(); });
+lb.addEventListener("click", (e) => { if (e.target === lb) closeLb(); });
+
+/* ===================================================================== */
+/* closing note + song video                                              */
+/* ===================================================================== */
+const videoShell = $("#videoShell");
+const vThumb = $("#vThumb");
+let videoStarted = false;
+
+(function closingCopy() {
+  const box = $("#closingText");
+  (CONFIG.closing || []).forEach((t) => {
+    const p = document.createElement("p");
+    p.textContent = t;
+    box.appendChild(p);
+  });
+  const v = CONFIG.video || {};
+  $("#vLabel").textContent = v.label || "click me";
+  $("#vSub").textContent = v.sub || "";
+  $("#finaleNote").textContent = v.note || "";
+  if (v.id) vThumb.src = "https://i.ytimg.com/vi/" + v.id + "/hqdefault.jpg";
+})();
+vThumb.addEventListener("error", () => { vThumb.style.display = "none"; });
+
+function startVideo() {
+  if (videoStarted) return;
+  if (!vidFile && !USE_YT) { cardNotice(); return; }
+  videoStarted = true;
+  $("#vFacade").style.display = "none";
+  playSong();
+  bootCard();
+  if (stageLive()) showStage();
+  else waitForStage();
+}
+function waitForStage() {
+  clearInterval(waitForStage._t);
+  let n = 0;
+  waitForStage._t = setInterval(() => {
+    if (stageLive()) { clearInterval(waitForStage._t); showStage(); }
+    else if (dead || ++n > 60) {
+      clearInterval(waitForStage._t);
+      $("#vFacade").style.display = "";
+      if (!cfgVideo.file && !USE_YT) cardNotice();
+      else $("#vSub").textContent = "tap to play the song";
+    }
+  }, 150);
+}
+$("#vFacade").addEventListener("click", startVideo);
+
+/* ===================================================================== */
+/* 25 reasons                                                           */
+/* ===================================================================== */
+(function buildNotes() {
+  const wrap = $("#notes");
+  const heart = '<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-9.6-9A5.4 5.4 0 0 1 12 6.6 5.4 5.4 0 0 1 21.6 12c-2.1 4.3-9.6 9-9.6 9Z"/></svg>';
+  CONFIG.reasons.forEach((text, i) => {
+    const note = document.createElement("div");
+    note.className = "note";
+    note.style.setProperty("--dl", (i * 0.035).toFixed(2) + "s");
+    const inner = document.createElement("div");
+    inner.className = "note-in";
+    const front = document.createElement("div");
+    front.className = "note-f";
+    const num = document.createElement("span");
+    num.className = "note-n";
+    num.textContent = String(i + 1).padStart(2, "0");
+    const lab = document.createElement("span");
+    lab.className = "note-l";
+    lab.textContent = "a reason";
+    front.innerHTML = heart;
+    front.appendChild(num);
+    front.appendChild(lab);
+    const back = document.createElement("div");
+    back.className = "note-b";
+    back.textContent = text;
+    inner.appendChild(front);
+    inner.appendChild(back);
+    note.appendChild(inner);
+    note.addEventListener("click", () => note.classList.toggle("flipped"));
+    wrap.appendChild(note);
+  });
+})();
+
+/* ===================================================================== */
+/* deck navigation                                                     */
+/* ===================================================================== */
+const deck = $("#deck");
+const pages = $$(".page");
+const finaleIndex = pages.indexOf($("#finale"));
+let page = 0;
+
+const dotsBox = $("#dots");
+pages.forEach((p, i) => {
+  const b = document.createElement("button");
+  b.setAttribute("aria-label", "Go to page " + (i + 1));
+  b.addEventListener("click", () => go(i));
+  dotsBox.appendChild(b);
+});
+function paintDots() {
+  $$("button", dotsBox).forEach((d, i) => d.classList.toggle("on", i === page));
+  $("#prev").disabled = page === 0;
+  $("#next").disabled = page === pages.length - 1;
+}
+function go(i, smooth) {
+  i = Math.max(0, Math.min(pages.length - 1, i));
+  const target = pages[i];
+  onPage(i);
+  const behavior = smooth === false || reduce ? "instant" : "smooth";
+  target.scrollIntoView({ behavior, block: "start" });
+  clearTimeout(go._fix);
+  go._fix = setTimeout(() => {
+    if (Math.abs(deck.scrollTop - target.offsetTop) > 8) deck.scrollTo({ top: target.offsetTop, behavior: "instant" });
+  }, smooth === false || reduce ? 60 : 750);
+}
+function onPage(i) {
+  if (i === page) return;
+  page = i;
+  paintDots();
+  pages[i].classList.add("on");
+  if (i > 0) $("#swipeHint").classList.add("gone");
+  if (i >= 1) typeLetter();
+  if (i === finaleIndex) { finaleSeen(); if (videoStarted && stageLive()) showStage(); }
+  else hideStage();
+  if (i === pages.length - 1) wishSeen();
+}
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => { if (e.isIntersecting && e.intersectionRatio > 0.55) onPage(pages.indexOf(e.target)); });
+}, { root: deck, threshold: [0.55] });
+pages.forEach((p) => io.observe(p));
+
+$("#prev").addEventListener("click", () => go(page - 1));
+$("#next").addEventListener("click", () => go(page + 1));
+$("#again").addEventListener("click", () => { go(0); setTimeout(() => { envelope.classList.remove("open"); envHint.textContent = "tap the envelope"; }, 700); });
+$("#photoAgain").addEventListener("click", () => go(2));
+
+/* touch: vertical swipe = page, horizontal = lightbox */
+let tx = 0, ty = 0, tracking = false;
+deck.addEventListener("touchstart", (e) => {
+  if (e.touches.length !== 1) return;
+  tx = e.touches[0].clientX; ty = e.touches[0].clientY; tracking = true;
+}, { passive: true });
+deck.addEventListener("touchend", (e) => {
+  if (!tracking) return;
+  tracking = false;
+  const t = e.changedTouches[0];
+  const dy = t.clientY - ty, dx = t.clientX - tx;
+  if (Math.abs(dy) > 70 && Math.abs(dy) > Math.abs(dx)) go(page + (dy < 0 ? 1 : -1));
+}, { passive: true });
+
+let lbX = 0, lbY = 0;
+lb.addEventListener("touchstart", (e) => { lbX = e.touches[0].clientX; lbY = e.touches[0].clientY; }, { passive: true });
+lb.addEventListener("touchend", (e) => {
+  const dx = e.changedTouches[0].clientX - lbX, dy = e.changedTouches[0].clientY - lbY;
+  if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy)) $("#lbNext").click();
+  else if (Math.abs(dy) > 70) closeLb();
+}, { passive: true });
+
+window.addEventListener("keydown", (e) => {
+  if (lb.classList.contains("show")) {
+    if (e.key === "Escape") closeLb();
+    else if (e.key === "ArrowRight") $("#lbNext").click();
+    else if (e.key === "ArrowLeft") $("#lbPrev").click();
+    return;
+  }
+  if (e.key === "m" || e.key === "M") { togglePlayer(); return; }
+  if (e.key === "ArrowDown" || e.key === "PageDown") { e.preventDefault(); go(page + 1); }
+  else if (e.key === "ArrowUp" || e.key === "PageUp") { e.preventDefault(); go(page - 1); }
+  else if (e.key === "Home") go(0);
+  else if (e.key === "End") go(pages.length - 1);
+  else if (e.key === "Enter" && page === 0 && !envelope.classList.contains("open")) envelope.click();
+});
+
+/* ===================================================================== */
+/* the envelope opens, then hands you to the letter                      */
+/* ===================================================================== */
+const envelope = $("#env");
+const envHint = $("#envHint");
+let opened = false;
+function openEnvelope() {
+  if (opened) return;
+  opened = true;
+  document.body.classList.add("started");
+  envelope.classList.add("open");
+  envHint.textContent = "come in \u2192";
+  playSong();
+  setTimeout(() => typeLetter(), reduce ? 0 : 1300);
+  setTimeout(() => go(1), reduce ? 0 : 900);
+}
+envelope.addEventListener("click", openEnvelope);
+envelope.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openEnvelope(); }
+});
+
+/* ===================================================================== */
+/* typewriter letter — tap the paper to skip to the end                   */
+/* ===================================================================== */
+let typed = false, typeTimer = null;
+function finishLetter() {
+  clearInterval(typeTimer);
+  const box = $("#letterText");
+  box.textContent = "";
+  CONFIG.letter.forEach((t) => { const p = document.createElement("p"); p.textContent = t; box.appendChild(p); });
+}
+function typeLetter() {
+  const box = $("#letterText");
+  if (typed || box.childElementCount) return;
+  typed = true;
+  if (reduce) { finishLetter(); return; }
+  box.textContent = "";
+  let p = 0, i = 0;
+  let cur = document.createElement("p");
+  const caret = document.createElement("span");
+  caret.className = "caret";
+  box.appendChild(cur);
+  cur.appendChild(caret);
+  typeTimer = setInterval(() => {
+    const line = CONFIG.letter[p];
+    if (line === undefined) { clearInterval(typeTimer); caret.remove(); return; }
+    if (i < line.length) cur.insertBefore(document.createTextNode(line[i++]), caret);
+    else {
+      p++; i = 0;
+      if (p >= CONFIG.letter.length) { clearInterval(typeTimer); caret.remove(); return; }
+      cur = document.createElement("p");
+      box.appendChild(cur);
+      cur.appendChild(caret);
+    }
+  }, 12);
+}
+$(".paper").addEventListener("click", () => { if (typed && $(".letter-text").childElementCount < CONFIG.letter.length) finishLetter(); });
+$(".paper").style.cursor = "pointer";
+
+/* ===================================================================== */
+/* music — soft pads, no audio files                                     */
+/* ===================================================================== */
+let audio = null, master = null, timer = null, soundOn = false, started = false;
+const CHORDS = [
+  [261.63, 329.63, 392.0, 130.81],
+  [220.0, 261.63, 329.63, 110.0],
+  [174.61, 220.0, 261.63, 87.31],
+  [196.0, 246.94, 293.66, 98.0]
+];
+const MEL = [523.25, 587.33, 659.25, 783.99, 880.0];
+const CH_DUR = 4.4;
+
+function impulse(ac, secs, decay) {
+  const rate = ac.sampleRate, len = Math.floor(rate * secs);
+  const buf = ac.createBuffer(2, len, rate);
+  for (let ch = 0; ch < 2; ch++) {
+    const d = buf.getChannelData(ch);
+    for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay);
+  }
+  return buf;
+}
+function pad(ac, bus, at, freq, dur, peak) {
+  const o = ac.createOscillator(); o.type = "triangle"; o.frequency.value = freq;
+  const g = ac.createGain();
+  g.gain.setValueAtTime(0.0001, at);
+  g.gain.linearRampToValueAtTime(peak, at + 1.5);
+  g.gain.linearRampToValueAtTime(peak, at + dur - 1.3);
+  g.gain.linearRampToValueAtTime(0.0001, at + dur);
+  o.connect(g); g.connect(bus); o.start(at); o.stop(at + dur + 0.2);
+}
+function bell(ac, bus, at, freq) {
+  const o = ac.createOscillator(); o.type = "sine"; o.frequency.value = freq;
+  const g = ac.createGain();
+  g.gain.setValueAtTime(0.0001, at);
+  g.gain.linearRampToValueAtTime(0.05, at + 0.02);
+  g.gain.exponentialRampToValueAtTime(0.0001, at + 2.2);
+  o.connect(g); g.connect(bus); o.start(at); o.stop(at + 2.3);
+}
+function startMusic() {
+  if (started) { if (audio && audio.state === "suspended") audio.resume(); return; }
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) return;
+  started = true;
+  audio = new AC();
+  if (audio.state === "suspended") audio.resume();
+  const bus = audio.createGain();
+  master = audio.createGain();
+  master.gain.value = 0.0;
+  const lp = audio.createBiquadFilter();
+  lp.type = "lowpass"; lp.frequency.value = 2300; lp.Q.value = 0.5;
+  bus.connect(master); master.connect(lp); lp.connect(audio.destination);
+  const conv = audio.createConvolver();
+  conv.buffer = impulse(audio, 2.4, 2.2);
+  const wet = audio.createGain(); wet.gain.value = 0.3;
+  bus.connect(conv); conv.connect(wet); wet.connect(lp);
+
+  let n = 0;
+  let nextT = audio.currentTime + 0.1;
+  function schedule() {
+    if (!started) return;
+    const c = CHORDS[n % CHORDS.length];
+    c.slice(0, 3).forEach((f) => pad(audio, bus, nextT, f, CH_DUR, 0.04));
+    pad(audio, bus, nextT, c[3], CH_DUR, 0.06);
+    bell(audio, bus, nextT + pick([0.2, 1.2, 2.3]), pick(MEL));
+    if (Math.random() < 0.6) bell(audio, bus, nextT + pick([1.7, 2.8]), pick(MEL));
+    n++;
+    nextT += CH_DUR;
+    timer = setTimeout(schedule, Math.max(0, (nextT - audio.currentTime - 0.4)) * 1000);
+  }
+  schedule();
+}
+function setSound(on) {
+  soundOn = on;
+  if (on) startMusic();
+  if (master && audio) master.gain.linearRampToValueAtTime(on ? 0.15 : 0.0, audio.currentTime + 0.6);
+}
+
+/* ===================================================================== */
+/* ---- the song + the closing-page video, played right here ---------------- */
+/* Priority:                                                                 */
+/*   1. a local file you drop in (audio/*.mp3, video/*.mp4) — always inline    */
+/*   2. YouTube, but only when the page is served over http(s)                */
+/*   3. the built-in ambient pads                                             */
+/* YouTube is skipped on file:// because it refuses to embed without an       */
+/* origin, and its "watch on YouTube" error page is what opens a new tab.     */
+const player = $("#player");
+const mediaStage = $("#mediaStage");
+const songEl = $("#song");
+const cfgVideo = CONFIG.video || {};
+const vidId = cfgVideo.id || "";
+const vidFile = cfgVideo.file || "";
+const audSrc = (CONFIG.audio && CONFIG.audio.src) || "";
+const OVER_HTTP = location.protocol === "http:" || location.protocol === "https:";
+const USE_YT = OVER_HTTP && !!vidId;
+
+let yt = null;            // YT.Player
+let frame = null;         // bare embed iframe (no API)
+let localVid = null;      // local <video>
+let localAud = false;     // the mp3 loaded
+let ready = false;        // some stage media is playable
+let dead = false;         // gave up on the video
+let wantPlay = false, playing = false;
+let estT = 0, estTick = null;
+
+const PLAY_SVG = '<svg id="plIcon" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>';
+const PAUSE_SVG = '<svg id="plIcon" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>';
+
+function fmt(s) {
+  if (!isFinite(s) || s < 0) s = 0;
+  return Math.floor(s / 60) + ":" + String(Math.floor(s % 60)).padStart(2, "0");
+}
+
+/* ---- what is actually playing ------------------------------------------- */
+function stageLive() { return yt || frame || localVid; }
+function songLen() {
+  if (localAud) return isFinite(songEl.duration) ? songEl.duration : 0;
+  if (yt) { const d = yt.getDuration(); return isFinite(d) && d > 0 ? d : 0; }
+  if (localVid && isFinite(localVid.duration)) return localVid.duration;
+  return cfgVideo.length || 0;
+}
+function songAt() {
+  if (localAud) return songEl.currentTime || 0;
+  if (yt) return yt.getCurrentTime() || 0;
+  if (localVid) return localVid.currentTime || 0;
+  return estT;
+}
+function isPlaying() {
+  if (localAud) return !songEl.paused;
+  if (yt) return yt.getPlayerState() === 1;
+  if (localVid) return !localVid.paused;
+  return playing;
+}
+function anythingPlaying() {
+  return isPlaying() || (stageLive() && stageLive().getPlayerState &&
+    stageLive().getPlayerState() === 1);
+}
+
+let uiTick = null, lastOn = null;
+function paintPlayer() {
+  const on = isPlaying();
+  player.classList.toggle("playing", on);
+  if (on !== lastOn) {
+    lastOn = on;
+    const icon = $("#plIcon");
+    if (icon) icon.outerHTML = on ? PAUSE_SVG : PLAY_SVG;
+    $("#plPlay").setAttribute("aria-label", on ? "Pause the song" : "Play Until I Found You");
+  }
+  const len = songLen();
+  if (len) {
+    $("#plFill").style.width = ((songAt() / len) * 100).toFixed(2) + "%";
+    $("#plTime").textContent = fmt(songAt()) + " / " + fmt(len);
+  } else {
+    $("#plFill").style.width = on ? "100%" : "0%";
+    $("#plTime").textContent = on ? "playing" : "0:00";
+  }
+  $("#plSub").textContent = localAud ? "our song" : ready ? "stephen sanchez" : dead ? "ambient" : "our song";
+  player.title = localAud
+    ? "Until I Found You"
+    : dead ? "Playing soft ambient pads instead" : "Until I Found You · Stephen Sanchez";
+  /* keep the bar moving while something is playing */
+  if (on && !uiTick) uiTick = setInterval(paintPlayer, 500);
+  else if (!on && uiTick) { clearInterval(uiTick); uiTick = null; }
+}
+
+/* ---- commands ----------------------------------------------------------- */
+function send(func, arg) {
+  if (yt) { if (typeof yt[func] === "function") yt[func](arg); return; }
+  if (frame && frame.contentWindow) {
+    try {
+      frame.contentWindow.postMessage(JSON.stringify({
+        event: "command", func: func,
+        args: arg === undefined ? "" : (typeof arg === "number" ? arg : String(arg))
+      }), "*");
+    } catch (e) {}
+  }
+}
+function estRun(on) {
+  clearInterval(estTick); estTick = null;
+  if (!on) return;
+  const len = songLen();
+  estTick = setInterval(() => {
+    estT += 0.25;
+    if (len && estT >= len) { estT = 0; send("seekTo", 0); send("playVideo"); }
+    paintPlayer();
+  }, 250);
+}
+
+/* ---- local mp3 ---------------------------------------------------------- */
+let audioState = "none";          /* none | loading | ok | bad */
+function bootAudio() {
+  if (!audSrc || audioState !== "none") return audioState === "ok";
+  audioState = "loading";
+  songEl.src = audSrc;
+  songEl.addEventListener("loadedmetadata", () => {
+    audioState = "ok";
+    localAud = true;
+    if (wantPlay) songEl.play().catch(() => {});
+    paintPlayer();
+  }, { once: true });
+  songEl.addEventListener("error", () => {
+    audioState = "bad";
+    localAud = false;
+    songEl.removeAttribute("src");
+    if (USE_YT) bootYT();
+    if (wantPlay && !stageLive()) setSound(true);
+    paintPlayer();
+  }, { once: true });
+  songEl.addEventListener("timeupdate", paintPlayer);
+  songEl.addEventListener("play", () => { playing = true; paintPlayer(); });
+  songEl.addEventListener("pause", () => { playing = false; paintPlayer(); });
+  return false;
+}
+
+/* ---- local mp4 (the card video) ----------------------------------------- */
+function bootLocalVideo() {
+  if (!vidFile) return false;
+  const v = document.createElement("video");
+  v.src = vidFile;
+  v.controls = true;
+  v.loop = true;
+  v.playsInline = true;
+  v.preload = "metadata";
+  v.setAttribute("playsinline", "");
+  v.setAttribute("webkit-playsinline", "");
+  v.addEventListener("error", () => { localVid = null; v.remove(); giveUp(); }, { once: true });
+  v.addEventListener("play", paintPlayer);
+  v.addEventListener("pause", paintPlayer);
+  v.addEventListener("timeupdate", paintPlayer);
+  mediaStage.appendChild(v);
+  localVid = v;
+  return true;
+}
+
+/* ---- YouTube (http(s) only) -------------------------------------------- */
+let apiPromise = null;
+function loadYouTube() {
+  if (apiPromise) return apiPromise;
+  apiPromise = new Promise((res) => {
+    if (window.YT && window.YT.Player) return res();
+    const prev = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = () => { if (prev) prev(); res(); };
+    const s = document.createElement("script");
+    s.src = "https://www.youtube.com/iframe_api";
+    s.async = true;
+    s.onerror = res;
+    document.head.appendChild(s);
+    setTimeout(res, 7000);
+  });
+  return apiPromise;
+}
+function bootEmbed() {
+  if (dead || frame) return;
+  const f = document.createElement("iframe");
+  f.title = "Until I Found You";
+  f.allow = "autoplay; encrypted-media; picture-in-picture";
+  f.allowFullscreen = true;
+  f.src = "https://www.youtube.com/embed/" + vidId +
+    "?enablejsapi=1&autoplay=1&controls=1&rel=0&playsinline=1&modestbranding=1&iv_load_policy=3";
+  mediaStage.appendChild(f);
+  frame = f;
+  ready = true;
+  if (wantPlay) { playing = true; estRun(true); send("playVideo"); }
+  paintPlayer();
+}
+function bootYT() {
+  if (dead || yt) return;
+  loadYouTube().then(() => {
+    if (!window.YT || !window.YT.Player) return bootEmbed();
+    const vars = {
+      autoplay: 1, controls: 1, rel: 0, playsinline: 1, modestbranding: 1,
+      iv_load_policy: 3, enablejsapi: 1, widget_referrer: location.href.split("#")[0]
+    };
+    if (OVER_HTTP) vars.origin = location.origin;
+    yt = new window.YT.Player("ytHost", {
+      videoId: vidId,
+      playerVars: vars,
+      events: {
+        onReady: (e) => {
+          ready = true;
+          try { e.target.setVolume(85); } catch (err) {}
+          if (wantPlay) { playing = true; e.target.playVideo(); }
+          paintPlayer();
+        },
+        onStateChange: (e) => {
+          playing = e.data === 1;
+          paintPlayer();
+          if (e.data === 0) { estT = 0; send("seekTo", 0); send("playVideo"); }
+        },
+        onError: giveUp
+      }
+    });
+  });
+}
+
+/* ---- boot / give up ----------------------------------------------------- */
+function bootCard() {
+  if (bootLocalVideo()) { ready = true; return; }
+  if (USE_YT) return bootYT();
+  cardNotice();
+}
+function cardNotice() {
+  const f = $("#vFacade");
+  if (!f) return;
+  $("#vSub").textContent = "play it here: serve the folder, then open localhost";
+  f.title = "Run  python3 -m http.server 8000  in this folder, then open http://localhost:8000";
+}
+function giveUp() {
+  dead = true;
+  clearInterval(estTick); estTick = null;
+  parkStage();
+  const f = $("#vFacade");
+  if (f) {
+    f.style.display = "";
+    $("#vSub").textContent = "tap to play the song";
+  }
+  if (wantPlay && !localAud) setSound(true);
+  paintPlayer();
+}
+function boot() {
+  const gotAudio = bootAudio();
+  if (!gotAudio && audioState === "none" && USE_YT && !stageLive()) bootYT();
+  if (!gotAudio && audioState === "none" && !USE_YT && wantPlay) setSound(true);
+  paintPlayer();
+}
+
+/* ---- transport ---------------------------------------------------------- */
+function playSong() {
+  wantPlay = true;
+  if (audioState === "none") boot();
+  if (audioState === "loading") { paintPlayer(); return; }
+  if (audioState === "ok") {
+    setSound(false);
+    songEl.play().catch(() => {});
+    paintPlayer();
+    return;
+  }
+  if (dead) { setSound(true); paintPlayer(); return; }
+  setSound(false);
+  if (!stageLive()) {
+    if (USE_YT) bootYT();
+    else { setSound(true); paintPlayer(); return; }
+  }
+  if (localVid) localVid.play().catch(() => {});
+  else { playing = true; send("playVideo"); estRun(true); }
+  paintPlayer();
+}
+function pauseSong() {
+  wantPlay = false;
+  if (localAud) { songEl.pause(); paintPlayer(); return; }
+  if (localVid) localVid.pause();
+  else if (yt) { try { yt.pauseVideo(); } catch (e) {} } else send("pauseVideo");
+  playing = false;
+  estRun(false);
+  if (!stageLive()) setSound(false);
+  paintPlayer();
+}
+function togglePlayer() { isPlaying() ? pauseSong() : playSong(); }
+
+$("#plPlay").addEventListener("click", togglePlayer);
+$("#plBar").addEventListener("click", (e) => {
+  const len = songLen();
+  if (!len) return;
+  const r = e.currentTarget.getBoundingClientRect();
+  const t = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * len;
+  estT = t;
+  if (localAud) songEl.currentTime = t;
+  else if (localVid) localVid.currentTime = t;
+  else send("seekTo", t);
+  paintPlayer();
+});
+paintPlayer();
+
+/* ---- the big video on the closing page ---------------------------------- */
+/* the media element never moves in the DOM — it is re-positioned over the   */
+/* card, so the song keeps playing while it doubles as the on-page video.     */
+let stageTimer = null;
+const STAGE_W = 640, STAGE_H = 360;
+function ytSize(w, h) {
+  if (!yt || typeof yt.setSize !== "function") return;
+  try { yt.setSize(Math.max(2, Math.round(w)), Math.max(2, Math.round(h))); } catch (e) {}
+}
+function stageTo(box) {
+  const r = box.getBoundingClientRect();
+  mediaStage.style.left = r.left + "px";
+  mediaStage.style.top = r.top + "px";
+  mediaStage.style.width = r.width + "px";
+  mediaStage.style.height = r.height + "px";
+  ytSize(r.width, r.height);
+}
+function parkStage() {
+  mediaStage.classList.remove("on");
+  mediaStage.style.left = "-9999px";
+  mediaStage.style.width = STAGE_W + "px";
+  mediaStage.style.height = STAGE_H + "px";
+  ytSize(STAGE_W, STAGE_H);
+}
+function onStage() { if (mediaStage.classList.contains("on")) stageTo(videoShell); }
+function showStage() {
+  if (!stageLive()) return;
+  stageTo(videoShell);
+  mediaStage.classList.add("on");
+  clearInterval(stageTimer);
+  stageTimer = setInterval(onStage, 150);
+  addEventListener("resize", onStage);
+  addEventListener("scroll", onStage, { passive: true });
+}
+function hideStage() {
+  if (!stageTimer && !mediaStage.classList.contains("on")) return;
+  clearInterval(stageTimer); stageTimer = null;
+  parkStage();
+  removeEventListener("resize", onStage);
+  removeEventListener("scroll", onStage);
+}
+/* heart confetti on the last page                                       */
+/* ===================================================================== */
+const cv = $("#confetti");
+const cx = cv.getContext("2d");
+let bits = [], raf = 0;
+function sizeCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  cv.width = Math.floor(innerWidth * dpr);
+  cv.height = Math.floor(innerHeight * dpr);
+  cv.style.width = innerWidth + "px";
+  cv.style.height = innerHeight + "px";
+  cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+sizeCanvas();
+addEventListener("resize", sizeCanvas);
+
+const GLYPH = ["\u2764", "\u2721", "\u2665", "\u2666"];
+function heartsBurst(count) {
+  for (let i = 0; i < count; i++) {
+    bits.push({
+      x: innerWidth * (0.1 + Math.random() * 0.8),
+      y: innerHeight * (0.55 + Math.random() * 0.5),
+      vx: (Math.random() - 0.5) * 2.2,
+      vy: -(1.6 + Math.random() * 3.4),
+      s: 12 + Math.random() * 20,
+      r: (Math.random() - 0.5) * 0.3,
+      vr: (Math.random() - 0.5) * 0.12,
+      life: 1,
+      decay: 0.16 + Math.random() * 0.2,
+      g: pick(GLYPH),
+      hue: pick(["#e2607f", "#d9a441", "#c86a9a", "#b8607f"])
+    });
+  }
+  if (!raf) raf = requestAnimationFrame(tick);
+}
+function tick() {
+  cx.clearRect(0, 0, innerWidth, innerHeight);
+  for (let i = bits.length - 1; i >= 0; i--) {
+    const b = bits[i];
+    b.life -= b.decay * 0.016;
+    if (b.life <= 0 || b.y > innerHeight + 60) { bits.splice(i, 1); continue; }
+    b.vy += 0.035;
+    b.vx *= 0.995;
+    b.x += b.vx;
+    b.y += b.vy;
+    b.r += b.vr;
+    cx.save();
+    cx.translate(b.x, b.y);
+    cx.rotate(b.r);
+    cx.globalAlpha = Math.min(1, b.life * 1.8);
+    cx.fillStyle = b.hue;
+    cx.font = b.s + "px serif";
+    cx.textAlign = "center";
+    cx.fillText(b.g, 0, 0);
+    cx.restore();
+  }
+  raf = bits.length ? requestAnimationFrame(tick) : 0;
+  if (!raf) cx.clearRect(0, 0, innerWidth, innerHeight);
+}
+let wished = false;
+function wishSeen() {
+  if (wished) return;
+  wished = true;
+  heartsBurst(70);
+  setTimeout(() => heartsBurst(40), 1400);
+  if (!isPlaying()) togglePlayer();
+}
+let finaleDone = false;
+function finaleSeen() {
+  if (finaleDone) return;
+  finaleDone = true;
+  heartsBurst(26);
+  setTimeout(() => heartsBurst(14), 1200);
+}
+
+/* ===================================================================== */
+/* boot                                                                 */
+/* ===================================================================== */
+pages[0].classList.add("on");
+paintDots();
+boot();
+setTimeout(() => $("#swipeHint").classList.add("gone"), 6000);
+</script>
+</body>
+</html>
